@@ -1,2 +1,5 @@
 streamlit
-
+pandas
+pickle
+os
+numpy
