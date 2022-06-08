@@ -1,3 +1,4 @@
-streamlit==1.1.0
+streamlit==1.10.0
 python-dateutil==1.5
-numpy==1.21.4
+numpy==1.21.5
+pandas ==poe1.3.1
