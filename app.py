@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import os 
-import pickle 
+
 
 st.title("""
 # Home Credit Default Risk
@@ -22,6 +22,3 @@ if uploaded_file is not None:
         columns=['EXT_SOURCE_1', 'EXT_SOURCE_2','EXT_SOURCE_3'])
     st.line_chart(df)
 
-MODEL_DIR = os.path.join(os.path.dirname('file'), 'model.pickle')
-with open(MODEL_DIR , 'rb') as handle:
-    model = pickle.load(handle)
