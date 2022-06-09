@@ -26,11 +26,18 @@ if uploaded_file is not None:
 MODEL_DIR = os.path.join(os.path.dirname('file'), 'model.pickle')
 with open(MODEL_DIR , 'rb') as handle:
     model = pickle.load(handle)
-st.title("Time for a Prediction")
-sentence = st.text_input('Input your sentence here:') 
+
 
 original_list = ["Office" , "Parking" , "Other" , "Retail Store" , "Self-Storage Facility" , "Other-Services" , "Restaurant" , "Supermarket" , "Bar/nightclub" , "Other-Education" , "Data Center" , "Non refregirated warehouse"]
-type_of_building = st.sidebar.selectbox("select your building type : " , original_list)
+type_of_building = st.sidebar.selectbox("select your first main building type : " , original_list)
+
+type_of_building = st.sidebar.selectbox("select your second main building type : " , original_list)
+
+type_of_building = st.sidebar.selectbox("select your third main building type : " , original_list)
 
 number_of_floor_list = ["1" , "2" , "3" , "4" , "5"]
-number_of_floor = st.sidebar.selectbox("select your building type : " , number_of_floor_list)
+number_of_floor = st.sidebar.selectbox("select the number of floor in your buildings : " , number_of_floor_list)
+
+year_it_was_built_list = ["2021", "2022"]
+year_it_was_built = st.sidebar.selectbox("selec what year the building was constructed : " , year_it_was_built_list)
+next_button = st.sidebar.button("next")
