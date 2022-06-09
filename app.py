@@ -30,4 +30,5 @@ st.title("Time for a Prediction")
 sentence = st.text_input('Input your sentence here:') 
 
 if sentence:
-    st.write(MODEL_DIR.predict(sentence))
+    st.write(model.predict(sentence))
+    
