@@ -30,4 +30,7 @@ st.title("Time for a Prediction")
 sentence = st.text_input('Input your sentence here:') 
 
 original_list = ["Office" , "Parking" , "Other" , "Retail Store" , "Self-Storage Facility" , "Other-Services" , "Restaurant" , "Supermarket" , "Bar/nightclub" , "Other-Education" , "Data Center" , "Non refregirated warehouse"]
-country = st.sidebar.selectbox("select your building type : " , original_list)
+type_of_building = st.sidebar.selectbox("select your building type : " , original_list)
+
+number_of_floor_list = ["1" , "2" , "3" , "4" , "5"]
+number_of_floor = st.sidebar.selectbox("select your building type : " , number_of_floor_list)
