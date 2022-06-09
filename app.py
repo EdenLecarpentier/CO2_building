@@ -8,19 +8,10 @@ st.title("""
 # Home Credit Default Risk
 """)
 
-uploaded_file = st.file_uploader("Choose a file")
-if uploaded_file is not None:
-    df = pd.read_csv(uploaded_file)
 #if uploaded_file is not None:
 #    df = pd.read_csv(uploaded_file)
 #    df.drop('Unnamed: 0', inplace=True, axis=1)
 #    st.write(df.head())
-#    #Select ID
-#    st.selectbox('Choose ID', df)
-#    #Graphique
-#    df = pd.DataFrame(
-#        np.random.randn(20, 3),
-#        columns=['EXT_SOURCE_1', 'EXT_SOURCE_2','EXT_SOURCE_3'])
 #    st.line_chart(df)
 model = None
 
@@ -28,9 +19,19 @@ MODEL_DIR = os.path.join(os.path.dirname('file'), 'model.pickle')
 with open(MODEL_DIR , 'rb') as handle:
     model = pickle.load(handle)
 
-    if uploaded_file is not None:
-      df_test = pd.read_csv(uploaded_file)
-      st.write(df_test.head())
+uploaded_file = st.file_uploader("Choose a file")
+if uploaded_file is not None:
+    df = pd.read_csv(uploaded_file)
+    if st.button('Predict'):
+            #test_x = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
+            val = model.predict(uploaded_file)
+            #.reshape(-1, 28, 28,1))
+#    #Select ID
+#    st.selectbox('Choose ID', df)
+#    #Graphique
+#    df = pd.DataFrame(
+#        np.random.randn(20, 3),
+#        columns=['EXT_SOURCE_1', 'EXT_SOURCE_2','EXT_SOURCE_3'])
 
 
 
@@ -48,8 +49,5 @@ number_of_floor = st.sidebar.selectbox("select the number of floor in your build
 
 date = st.sidebar.date_input('date the building(s) where created :')
 test_x = pd.read_csv("C:/Users/edenl/Desktop/ia_coding/machine_learning/co2/data/Clean.csv")
-if st.button('Predict'):
-            #test_x = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
-            val = model.predict(test_x)
-            #.reshape(-1, 28, 28,1))
+
                   
