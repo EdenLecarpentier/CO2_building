@@ -28,7 +28,7 @@ with open(MODEL_DIR , 'rb') as handle:
     model = pickle.load(handle)
 
 
-original_list = ["Office" , "Parking" , "Other" , "Retail Store" , "Self-Storage Facility" , "Other-Services" , "Restaurant" , "Supermarket" , "Bar/nightclub" , "Other-Education" , "Data Center" , "Non refregirated warehouse"]
+original_list = ["None","Office" , "Parking" , "Other" , "Retail Store" , "Self-Storage Facility" , "Other-Services" , "Restaurant" , "Supermarket" , "Bar/nightclub" , "Other-Education" , "Data Center" , "Non refregirated warehouse"]
 type_of_building = st.sidebar.selectbox("select your first main building type : " , original_list)
 
 type_of_building = st.sidebar.selectbox("select your second main building type : " , original_list)
@@ -39,5 +39,5 @@ number_of_floor_list = ["1" , "2" , "3" , "4" , "5"]
 number_of_floor = st.sidebar.selectbox("select the number of floor in your buildings : " , number_of_floor_list)
 
 year_it_was_built_list = ["2021", "2022"]
-year_it_was_built = st.sidebar.selectbox("selec what year the building was constructed : " , year_it_was_built_list)
-next_button = st.sidebar.button("next")
+
+date = st.sidebar.date_input('date the building(s) where created :' , year_it_was_built_list)
