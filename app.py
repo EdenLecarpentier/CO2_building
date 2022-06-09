@@ -22,10 +22,16 @@ if uploaded_file is not None:
 #        np.random.randn(20, 3),
 #        columns=['EXT_SOURCE_1', 'EXT_SOURCE_2','EXT_SOURCE_3'])
 #    st.line_chart(df)
+model = None
 
 MODEL_DIR = os.path.join(os.path.dirname('file'), 'model.pickle')
 with open(MODEL_DIR , 'rb') as handle:
     model = pickle.load(handle)
+
+    if uploaded_file is not None:
+      df_test = pd.read_csv(uploaded_file)
+      st.write(df_test.head())
+
 
 
 original_list = ["None","Office" , "Parking" , "Other" , "Retail Store" , "Self-Storage Facility" , "Other-Services" , "Restaurant" , "Supermarket" , "Bar/nightclub" , "Other-Education" , "Data Center" , "Non refregirated warehouse"]
@@ -38,9 +44,12 @@ type_of_building = st.sidebar.selectbox("select your third main building type : 
 number_of_floor_list = ["1" , "2" , "3" , "4" , "5"]
 number_of_floor = st.sidebar.selectbox("select the number of floor in your buildings : " , number_of_floor_list)
 
-year_it_was_built_list = ["2021", "2022"]
+# year_it_was_built_list = ["2021", "2022"]
 
 date = st.sidebar.date_input('date the building(s) where created :')
-
-button_to_predict = st.sidebar.button("next")
-
+test_x = pd.read_csv("C:/Users/edenl/Desktop/ia_coding/machine_learning/co2/data/Clean.csv")
+if st.button('Predict'):
+            #test_x = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
+            val = model.predict(test_x)
+            #.reshape(-1, 28, 28,1))
+                  
