@@ -40,4 +40,7 @@ number_of_floor = st.sidebar.selectbox("select the number of floor in your build
 
 year_it_was_built_list = ["2021", "2022"]
 
-date = st.sidebar.date_input('date the building(s) where created :' , year_it_was_built_list)
+date = st.sidebar.date_input('date the building(s) where created :')
+
+button_to_predict = st.sidebar.button("next")
+
