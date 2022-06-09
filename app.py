@@ -27,4 +27,7 @@ MODEL_DIR = os.path.join(os.path.dirname('file'), 'model.pickle')
 with open(MODEL_DIR , 'rb') as handle:
     model = pickle.load(handle)
 st.title("Time for a Prediction")
-st.button("test")
+sentence = st.text_input('Input your sentence here:') 
+
+if sentence:
+    st.write(MODEL_DIR.predict(sentence))
