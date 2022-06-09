@@ -25,7 +25,7 @@ if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     if st.button('Predict'):
             #test_x = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
-            val = model.predict(handle)
+            val = model.predict(20)
             #.reshape(-1, 28, 28,1))
             st.write(handle)
             
