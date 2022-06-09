@@ -27,8 +27,8 @@ if uploaded_file is not None:
             #test_x = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
             val = model.predict(uploaded_file)
             #.reshape(-1, 28, 28,1))
-          
-            st.write(val)
+            st.write(uploaded_file)
+            
 
 
 #original_list = ["None","Office" , "Parking" , "Other" , "Retail Store" , "Self-Storage Facility" , "Other-Services" , "Restaurant" , "Supermarket" , "Bar/nightclub" , "Other-Education" , "Data Center" , "Non refregirated warehouse"]
