@@ -29,6 +29,5 @@ with open(MODEL_DIR , 'rb') as handle:
 st.title("Time for a Prediction")
 sentence = st.text_input('Input your sentence here:') 
 
-if sentence:
-    st.write(model.predict(sentence))
-    
+original_list = ["Office" , "Parking" , "Other" , "Retail Store" , "Self-Storage Facility" , "Other-Services" , "Restaurant" , "Supermarket" , "Bar/nightclub" , "Other-Education" , "Data Center" , "Non refregirated warehouse"]
+country = st.sidebar.selectbox()
