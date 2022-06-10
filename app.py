@@ -36,6 +36,7 @@ if uploaded_file is not None:
         (OneHotEncoder(), features_cat),  # encodage
         (StandardScaler(), features_num), # standardisation
         remainder='passthrough')
+        st.table(df)
         to_predict = ['SiteEnergyUse(kBtu)', 'TotalGHGEmissions']
         val = model.predict(df)
             #.reshape(-1, 28, 28,1))
