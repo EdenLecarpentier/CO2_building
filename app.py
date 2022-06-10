@@ -3,6 +3,9 @@ import pandas as pd
 import streamlit as st
 import os
 import pickle
+from sklearn.compose import make_column_transformer
+from sklearn.preprocessing import StandardScaler
+
 from sklearn.preprocessing import OneHotEncoder
 
 st.title("""
@@ -25,7 +28,15 @@ if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     if st.button('Predict'):
             #test_x = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
-        df.OneHotEncoder(handle_unknown="ignore")
+        features_cat = list(df.select_dtypes(include=['object']))
+
+        features_num = ['OSEBuildingID', 'CouncilDistrictCode',  'NumberofFloors','PropertyGFATotal', 'PropertyGFAParking', 
+                'PropertyGFABuilding(s)', 'BuildingAge']
+        column_trans = make_column_transformer(
+        (OneHotEncoder(), features_cat),  # encodage
+        StandardScaler(), features_num), # standardisation
+    remainder='passthrough')
+to_predict = ['SiteEnergyUse(kBtu)', 'TotalGHGEmissions']
         val = model.predict(df)
             #.reshape(-1, 28, 28,1))
         st.write(df)
