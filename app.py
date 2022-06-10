@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 import os
 import pickle
-
+from sklearn.preprocessing import OneHotEncoder
 
 st.title("""
 # Co2 Building
@@ -25,9 +25,10 @@ if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     if st.button('Predict'):
             #test_x = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
+        df.OneHotEncoder(handle_unknown="ignore")
         val = model.predict(df)
             #.reshape(-1, 28, 28,1))
-        st.write(handle)
+        st.write(df)
             
 
 
