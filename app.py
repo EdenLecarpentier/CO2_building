@@ -34,9 +34,9 @@ if uploaded_file is not None:
                 'PropertyGFABuilding(s)', 'BuildingAge']
         column_trans = make_column_transformer(
         (OneHotEncoder(), features_cat),  # encodage
-        StandardScaler(), features_num), # standardisation
-        remainder='passthrough')
-to_predict = ['SiteEnergyUse(kBtu)', 'TotalGHGEmissions']
+        (StandardScaler(), features_num), # standardisation
+        (remainder='passthrough')
+        to_predict = ['SiteEnergyUse(kBtu)', 'TotalGHGEmissions']
         val = model.predict(df)
             #.reshape(-1, 28, 28,1))
         st.write(df)
