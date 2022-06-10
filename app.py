@@ -35,7 +35,7 @@ if uploaded_file is not None:
         column_trans = make_column_transformer(
         (OneHotEncoder(), features_cat),  # encodage
         StandardScaler(), features_num), # standardisation
-    remainder='passthrough')
+        remainder='passthrough')
 to_predict = ['SiteEnergyUse(kBtu)', 'TotalGHGEmissions']
         val = model.predict(df)
             #.reshape(-1, 28, 28,1))
